@@ -10,7 +10,8 @@
  * @version Copyright A2019
  * 
  */
-public class Pile extends TDAAbstrait{
+public class Pile extends TDAAbstrait
+{
 
 	 /*
 	  *STRATEGIE : On utilise la classe Noeud déclarée protected dans 
@@ -23,13 +24,15 @@ public class Pile extends TDAAbstrait{
 	/*
 	 * Constructeur par défaut qui retourne une pile vide instanciée.
 	 */
-	public Pile(){
+	public Pile()
+	{
 		super();
 	}
 
 
 	@Override
-	public void ajoute (Object element) {
+	public void ajoute (Object element) 
+	{
 		
 		// On ajoute avant le premier noeud.
 		debut = new Noeud(element, debut);
@@ -46,7 +49,8 @@ public class Pile extends TDAAbstrait{
      * conséquent : L'élément sur le sommet est encore sur la pile.
 	 */
 	@Override
-	public Object getElement () throws TDAVideException{
+	public Object getElement () throws TDAVideException
+	{
 		
 		if(debut == null) {
     		throw new TDAVideException(" La pile est vide");
@@ -59,7 +63,8 @@ public class Pile extends TDAAbstrait{
 	 * avant si nécessaire.
 	 */
 	@Override
-	public void supprime() throws TDAVideException {
+	public void supprime() throws TDAVideException 
+	{
 
 		if(nbElements == 0) {
 			throw new TDAVideException("La pile est vide");
@@ -73,12 +78,14 @@ public class Pile extends TDAAbstrait{
 	}
 
 	 @Override
-	 public String getId() {
-	    	return "Pile";
+	 public String getId() 
+	 {
+	    return "Pile";
 	 }
 	 
 	 @Override
-	 public int getPosition() {
+	 public int getPosition() 
+	 {
 		 return 0;
 	 }
 

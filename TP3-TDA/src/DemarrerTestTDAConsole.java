@@ -238,10 +238,9 @@ public class DemarrerTestTDAConsole {
 		// L'Élément est 10 et la position est nbElements -1.
 		tdaI.setPcFin();
 		if(DEBUG) afficherTDA(tdaI);
-
+		
 		try {
-			if(tdaI.getPosition() != tdaI.getNbElements() -1 &&
-					(int)tdaI.getElement() == 10) {
+			if(tdaI.getPosition() != tdaI.getNbElements() -1 && (int)tdaI.getElement() == 10) {
 
 				aviserErreurPc("setPcFin() ou getPosition() ou getNbElement()");
 			}
