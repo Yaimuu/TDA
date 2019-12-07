@@ -11,7 +11,7 @@
 public class DemarrerTestTDAConsole {
 
 	// Mettre √† true pour voir les d√©tails des tests et √† false sinon.
-	public static final boolean DEBUG = false;
+	public static final boolean DEBUG = true;
 
 	// Nombre d'√©l√©ments utilis√©s pour le test.
 	public static final int NB_ELEMENTS_MAX = 10;
@@ -32,7 +32,7 @@ public class DemarrerTestTDAConsole {
 		 */
 
 		System.out.println();
-		System.out.println("LES TESTS SERONT EFFECTU√âS " + NB_TOURS + " FOIS");
+		System.out.println("LES TESTS SERONT EFFECTUES " + NB_TOURS + " FOIS");
 		
 		// Cr√©ation des tdas test√©s.
 		InterfaceTDAIterateur liste = new Liste(InterfaceTDAIterateur.APRES);
@@ -54,7 +54,7 @@ public class DemarrerTestTDAConsole {
 		}
 		
 		System.out.println();
-		System.out.println("Test termin√©");		
+		System.out.println("Test terminÈe");		
 
 	}
 
@@ -67,9 +67,9 @@ public class DemarrerTestTDAConsole {
 		System.out.println();
 
 		if(i == 0)
-			System.out.println("Premi√®re batterie de tests");
+			System.out.println("PremiËre batterie de tests");
 		else
-			System.out.println(i + 1 + " i√®me batterie de tests");
+			System.out.println(i + 1 + " ieme batterie de tests");
 		
 		System.out.println();
 		
@@ -82,13 +82,13 @@ public class DemarrerTestTDAConsole {
 
 		System.out.println();
 		System.out.println();
-		System.out.println(" Une file contenant les entiers 1 √† 10 est cr√©√©e");
+		System.out.println(" Une file contenant les entiers 1 √† 10 est crÈe");
 		System.out.println(" -----------------------------------------------");
-		System.out.println(" Deux entiers sont d√©fil√©s et trois sont enfil√©s");
+		System.out.println(" Deux entiers sont dÈfilÈs et trois sont enfilÈs");
 		System.out.println(" on doit voir des entiers de 3 √† 13.");
 		System.out.println(" -----------------------------------------------");
-		System.out.println(" Toutes les valeurs sont d√©fil√©es une √† une et on");
-		System.out.println(" r√©enfile 2 entiers, on doit voir les entiers 1 et 2.");
+		System.out.println(" Toutes les valeurs sont dÈfilÈes une ‡ une et on");
+		System.out.println(" rÈenfile 2 entiers, on doit voir les entiers 1 et 2.");
 		System.out.println(" -----------------------------------------------");
 		System.out.println(" Finalement, on supprime la file.");
 
@@ -102,40 +102,40 @@ public class DemarrerTestTDAConsole {
 		System.out.println();
 		System.out.println();
 		System.out.println(" On ajoute en mode d'insertion APRES dans une liste");
-		System.out.println(" On aura les valeurs de 1 √† 10 dans l'ordre");
+		System.out.println(" On aura les valeurs de 1 ‡ 10 dans l'ordre");
 		System.out.println(" -----------------------------------------------");
-		System.out.println(" On d√©place l'it√©rateur entre le d√©but et la fin " +
+		System.out.println(" On dÈplace l'itÈrateur entre le dÈbut et la fin " +
 		                   " pour tester le positionnement.  On teste aussi "
-		                   + "les limites (ex: d√©placer suivant d√©j√† au dernier)");
+		                   + "les limites (ex: dÈplacer suivant dÈj‡† au dernier)");
 		System.out.println(" -----------------------------------------------");		
-		System.out.println(" On met l'it√©rateur au d√©but et on ajoute deux entiers");
+		System.out.println(" On met l'itÈrateur au dÈbut et on ajoute deux entiers");
 		System.out.println(" on doit voir  1 12 13 2 3 4 5 6 7 8 9 10.");
-		System.out.println(" L'it√©rateur est sur le 13.");		
+		System.out.println(" L'itÈrateur est sur le 13.");		
 		System.out.println(" -----------------------------------------------");
 		System.out.println(" On change le mode d'insertion pour AVANT et " + 
 				             "on ajoute un entier");		
 		System.out.println(" on doit voir 1 12 14 13 2 3 4 5 6 7 8 9 10.");
-		System.out.println(" L'it√©rateur est sur le 14.");
+		System.out.println(" L'itÈrateur est sur le 14.");
 		System.out.println(" -----------------------------------------------");
-		System.out.println(" On supprime l'√©l√©ment ajout√©");		
+		System.out.println(" On supprime l'ÈlÈment ajoutÈ");		
 		System.out.println(" on doit voir 1 12 13 2 3 4 5 6 7 8 9 10.");
-		System.out.println(" L'it√©rateur est sur le 13.");
+		System.out.println(" L'itÈrateur est sur le 13.");
 		System.out.println(" -----------------------------------------------");
 		System.out.println(" On ajoute avant le premier");		
 		System.out.println(" on doit voir 15 1 12 13 2 3 4 5 6 7 8 9 10.");
-		System.out.println(" L'it√©rateur est sur le 15.");
+		System.out.println(" L'itÈrateur est sur le 15.");
 		System.out.println(" -----------------------------------------------");		
 		System.out.println(" On ajoute avant le dernier");		
 		System.out.println(" on doit voir 15 1 12 13 2 3 4 5 6 7 8 9 16 10.");
-		System.out.println(" L'it√©rateur est sur le 16.");
+		System.out.println(" L'itÈrateur est sur le 16.");
 		System.out.println(" -----------------------------------------------");		
-		System.out.println(" On supprime le dernier √©l√©ment");		
+		System.out.println(" On supprime le dernier ÈlÈment");		
 		System.out.println(" on doit voir 15 1 12 13 2 3 4 5 6 7 8 9 16.");
-		System.out.println(" L'it√©rateur est sur le 16.");
+		System.out.println(" L'itÈrateur est sur le 16.");
 		System.out.println(" -----------------------------------------------");
-		System.out.println(" On supprime le premier √©l√©ment");		
+		System.out.println(" On supprime le premier ÈlÈment");		
 		System.out.println(" on doit voir 1 12 13 2 3 4 5 6 7 8 9 16.");
-		System.out.println(" L'it√©rateur est sur le 1.");
+		System.out.println(" L'itÈrateur est sur le 1.");
 		System.out.println(" -----------------------------------------------");
 		System.out.println(" On supprime la liste un √† un, elle doit devenir vide.");
 		System.out.println(" -----------------------------------------------");
@@ -146,7 +146,7 @@ public class DemarrerTestTDAConsole {
 	// √âvite la r√©p√©tition de code pour cette erreur.
 	private static void aviserErreurVide(TDAVideException e, String id) {
 
-		System.out.println("Erreur grave le tda "+id+" Ne doit pas √™tre vide");
+		System.out.println("Erreur grave le tda "+id+" Ne doit pas Ítre vide");
 
 		e.printStackTrace();
 
@@ -156,7 +156,7 @@ public class DemarrerTestTDAConsole {
 	// √âvite la r√©p√©tition du message commun pour ce genre d'erreur.
 	private static void aviserErreurPc(String message) {
 
-		System.out.println("√âchec lors de l'utilisation de " + message);
+		System.out.println("Èchec lors de l'utilisation de " + message);
 
 	}
 
@@ -254,7 +254,7 @@ public class DemarrerTestTDAConsole {
 	private static void testerPcSuivantDebutAlaFin(InterfaceTDAIterateur tdaI){
 
 
-		System.out.println("Test pc suivant en partant du d√©but");
+		System.out.println("Test pc suivant en partant du dÈbut");
 
 		// L'√âl√©ment est 10 et la position est nbElements -1.
 		// On se d√©place de 2 alors getPosition donne 2 en partant de 0 et 
@@ -284,7 +284,7 @@ public class DemarrerTestTDAConsole {
 
 	private static void testerPcPrecedentDuDebut(InterfaceTDAIterateur tdaI) {
 
-		System.out.println("Test pc pr√©c√©dent, it√©rateur d√©j√† au d√©but");
+		System.out.println("Test pc prÈcÈdent, it√©rateur dÈj‡ au d√©but");
 
 		tdaI.setPcDebut();
 		if(DEBUG) afficherTDA(tdaI);
@@ -307,7 +307,7 @@ public class DemarrerTestTDAConsole {
 
 	private static void testerPcSuivantDeLaFin(InterfaceTDAIterateur tdaI) {
 
-		System.out.println("Test pc suivant, it√©rateur d√©j√† √† la fin");
+		System.out.println("Test pc suivant, itÈrateur dÈj‡†‡ la fin");
 
 		tdaI.setPcFin();
 		if(DEBUG) afficherTDA(tdaI);
@@ -330,7 +330,7 @@ public class DemarrerTestTDAConsole {
 
 	private static void testerPcPrecedentFinAuDebut(InterfaceTDAIterateur tdaI){
 
-		System.out.println("Test pc pr√©c√©dent en partant de la fin");
+		System.out.println("Test pc prÈcÈdent en partant de la fin");
 
 		tdaI.setPcFin();
 		if(DEBUG) afficherTDA(tdaI);	
@@ -395,7 +395,7 @@ public class DemarrerTestTDAConsole {
 		 * avant et apr√®s l'ajout.  C'est ainsi que nous v√©rifions que
 		 * tout se passe bien.
 		 */
-		System.out.println("Test d'insertion avant le dernier √©l√©ment");
+		System.out.println("Test d'insertion avant le dernier ÈlÈment");
 
 		try {
 			tdaI.setModeInsertion(InterfaceTDAIterateur.AVANT);
@@ -443,7 +443,7 @@ public class DemarrerTestTDAConsole {
 		 * avant et apr√®s l'ajout.  C'est ainsi que nous v√©rifions que
 		 * tout se passe bien.
 		 */
-		System.out.println("Test d'insertion avant le premier √©l√©ment");
+		System.out.println("Test d'insertion avant le premier ÈlÈment");
 		
 		try {
 			tdaI.setModeInsertion(InterfaceTDAIterateur.AVANT);
@@ -490,7 +490,7 @@ public class DemarrerTestTDAConsole {
 		 * tout se passe bien.
 		 */
 		
-		System.out.println("Test de suppression du premier √©l√©ment");
+		System.out.println("Test de suppression du premier ÈlÈment");
 
 
 		try {
@@ -543,7 +543,7 @@ public class DemarrerTestTDAConsole {
 		 * tout se passe bien.
 		 */
 		
-		System.out.println("Test de suppression du dernier √©l√©ment");
+		System.out.println("Test de suppression du dernier ÈlÈment");
 		
 		try {
 			tdaI.setModeInsertion(InterfaceTDAIterateur.APRES);
@@ -594,7 +594,7 @@ public class DemarrerTestTDAConsole {
 		 * 
 		 * On supprime cette m√™me valeur et l'it√©rateur ne doit pas bouger.
 		 */
-		System.out.println("Test d'ajout AVANT et de retait √† l'it√©rateur");
+		System.out.println("Test d'ajout AVANT et de retait √† l'itÈrateur");
 		
 		try {
 			
@@ -641,7 +641,7 @@ public class DemarrerTestTDAConsole {
 		 * le dernier √©l√©ment ajout√©.
 		 */
 
-		System.out.println("Test d'ajout en mode APRES du d√©but");
+		System.out.println("Test d'ajout en mode APRES du dÈbut");
 		tdaI.setPcDebut();			
 		if(DEBUG) afficherTDA(tdaI);
 
@@ -652,13 +652,13 @@ public class DemarrerTestTDAConsole {
 		if(DEBUG) afficherTDA(tdaI);
 
 		if(!tdaI.toString().equals("1 12 13 2 3 4 5 6 7 8 9 10")) {
-			aviserErreurPc("l'ajout APRES l'iterateur au d√©but");		
+			aviserErreurPc("l'ajout APRES l'iterateur au dÈbut");		
 		}
 		// It√©rateur sur le 13.
 		try {
 			if(tdaI.getPosition() != 2 || (int)tdaI.getElement() != 13) {
 
-				aviserErreurPc("l'ajout APRES l'iterateur au d√©but");
+				aviserErreurPc("l'ajout APRES l'iterateur au dÈbut");
 
 			}
 		} catch (TDAVideException e) {
@@ -692,7 +692,7 @@ public class DemarrerTestTDAConsole {
 				if(DEBUG) afficherTDA(tda);
 			}
 			catch(Exception e) {
-				System.out.println("Probl√®me de file vide p√©matur√©ment");
+				System.out.println("ProblËme de file vide prÈmaturÈment");
 			}
 
 		}
@@ -706,7 +706,7 @@ public class DemarrerTestTDAConsole {
 	 */
 	private static void obtenirTDA(InterfaceTDA tda) {
 
-		System.out.println("Cr√©ation de la " + tda.getId());
+		System.out.println("CrÈation de la " + tda.getId());
 		
 		for(int i = 0; i < NB_ELEMENTS_MAX; i++) {
 
@@ -716,7 +716,7 @@ public class DemarrerTestTDAConsole {
 		}		
 
 		if(!tda.toString().equals("1 2 3 4 5 6 7 8 9 10")) {
-			System.out.println("√âchec de cr√©ation du tda - " + tda.getId());
+			System.out.println("Èchec de crÈation du tda - " + tda.getId());
 		}
 
 
@@ -727,7 +727,7 @@ public class DemarrerTestTDAConsole {
 		// Effectue le test d√©crit dans afficherResultatTestFile
 
 		//	Deux entiers sont d√©fil√©s et trois sont enfil√©s.
-		System.out.println("Test de d√©filement");
+		System.out.println("Test de dÈfilement");
 
 		try {
 			tda.supprime();
@@ -754,7 +754,7 @@ public class DemarrerTestTDAConsole {
 
 		supprimerTDA(tda);
 
-		System.out.println("Test d'enfilement apr√®s suppression");
+		System.out.println("Test d'enfilement aprËs suppression");
 		
 		tda.ajoute(1);
 		if(DEBUG) afficherTDA(tda);
@@ -824,7 +824,7 @@ public class DemarrerTestTDAConsole {
 
 		
 		if(pos != tdaI.getPosition())
-			System.out.println("oups probl√®me avec getPosition() ou " + 
+			System.out.println("oups problËme avec getPosition() ou " + 
 		                       "setPcDebut() ou setPcSuivant() ou getElement()");
 			
 		// On affiche la position.
