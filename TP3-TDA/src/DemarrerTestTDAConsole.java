@@ -422,7 +422,6 @@ public class DemarrerTestTDAConsole {
 			   posAvant != nbElements - 1 || 
 			   element == elementApres || 
 			   element != 10 || elementApres != 16) {
-
 				aviserErreurPc("l'ajout avant le dernier");
 			}
 		}

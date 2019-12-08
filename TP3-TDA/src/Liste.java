@@ -19,23 +19,31 @@ public class Liste extends TDAAbstraitIterateur
 	{
 		if(this.debut != null) 
 		{
+			Noeud cursor = this.pc;
 			if(this.mode == AVANT) 
 			{
-				Noeud cursor = this.debut;
-				while(cursor != this.pc && cursor.suivant != this.pc)
+				if(this.pc == this.debut)
 				{
-					cursor = cursor.suivant;
+					cursor = new Noeud(element, cursor);
+					this.pc = cursor;
+					this.debut = cursor;
 				}
-				cursor.suivant = new Noeud(element, cursor.suivant);
-				this.pc = cursor.suivant;
-				System.out.println("Avant : " + element);
+				else
+				{
+					cursor = this.debut;
+					while(cursor.suivant != this.pc)
+					{
+						cursor = cursor.suivant;
+					}
+					cursor.suivant = new Noeud(element, cursor.suivant);
+					this.pc = cursor.suivant;
+				}
+				
 			}
 			else if(this.mode == APRES) 
 			{
-				Noeud cursor = this.pc;
 				cursor.suivant = new Noeud(element, cursor.suivant);
 				this.pc = cursor.suivant;
-				System.out.println("Après : " + element);
 			}
 		}
 		else 
@@ -48,7 +56,7 @@ public class Liste extends TDAAbstraitIterateur
 		{
 			cursor = cursor.suivant;
 		}
-		this.fin = new Noeud(element, null);
+		this.fin = cursor;
 		
 		nbElements++;
 		
@@ -72,12 +80,10 @@ public class Liste extends TDAAbstraitIterateur
 			this.pc = this.pc.suivant;
 		 }	
 	}
-	
 
 	@Override
 	public Object getElement() throws TDAVideException 
 	{
-		// TODO Auto-generated method stub
 		return this.pc.element;
 	}
 
@@ -87,21 +93,30 @@ public class Liste extends TDAAbstraitIterateur
 		
 		Noeud cursor = this.debut;
 		Noeud tmp = null;
-		while(cursor != this.pc && cursor.suivant != this.pc)
+		if(this.debut == this.pc)
 		{
-			cursor = cursor.suivant;
-		}
-		tmp = cursor.suivant.suivant;
-		if(cursor.suivant != null)
-		{
-			cursor.suivant = tmp;
+			this.debut = cursor.suivant;
+			cursor = null;
+			tmp = this.debut;
 		}
 		else
 		{
-			cursor.suivant = null;
+			while(cursor != this.pc && cursor.suivant != this.pc)
+			{
+				cursor = cursor.suivant;
+			}
+			tmp = cursor.suivant.suivant;
+			if(cursor.suivant != null)
+			{
+				cursor.suivant = tmp;
+			}
+			else
+			{
+				cursor.suivant = null;
+			}
 		}
-		
 		this.pc = tmp;
+		this.nbElements--;
 	}
 
 	@Override
