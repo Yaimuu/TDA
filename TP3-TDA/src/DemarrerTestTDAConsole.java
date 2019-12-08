@@ -11,7 +11,7 @@
 public class DemarrerTestTDAConsole {
 
 	// Mettre à true pour voir les détails des tests et à false sinon.
-	public static final boolean DEBUG = true;
+	public static final boolean DEBUG = false;
 
 	// Nombre d'éléments utilisés pour le test.
 	public static final int NB_ELEMENTS_MAX = 10;
@@ -561,7 +561,7 @@ public class DemarrerTestTDAConsole {
 			// Après
 			int posApres = tdaI.getPosition();
 			int nbElementsApres = tdaI.getNbElements();
-			int elementApres = (int) (int)tdaI.getElement();
+			int elementApres = (int)tdaI.getElement();
 			
 			
 			// Comme on connait la composition des données, il est facile de 

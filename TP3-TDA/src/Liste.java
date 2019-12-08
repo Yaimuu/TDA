@@ -19,18 +19,19 @@ public class Liste extends TDAAbstraitIterateur
 	{
 		if(this.debut != null) 
 		{
-			Noeud cursor = this.pc;
+			
 			if(this.mode == AVANT) 
 			{
 				if(this.pc == this.debut)
 				{
+					Noeud cursor = this.pc;
 					cursor = new Noeud(element, cursor);
 					this.pc = cursor;
 					this.debut = cursor;
 				}
 				else
 				{
-					cursor = this.debut;
+					Noeud cursor = this.debut;
 					while(cursor.suivant != this.pc)
 					{
 						cursor = cursor.suivant;
@@ -42,8 +43,15 @@ public class Liste extends TDAAbstraitIterateur
 			}
 			else if(this.mode == APRES) 
 			{
+				if(this.pc == null)
+				{
+					this.pc = this.debut;
+				}
+				
+				Noeud cursor = this.pc;
 				cursor.suivant = new Noeud(element, cursor.suivant);
 				this.pc = cursor.suivant;
+				
 			}
 		}
 		else 
@@ -52,7 +60,7 @@ public class Liste extends TDAAbstraitIterateur
 		}
 		
 		Noeud cursor = this.debut;
-		while(cursor.suivant != null) 
+		while(cursor != null && cursor.suivant != null) 
 		{
 			cursor = cursor.suivant;
 		}
@@ -84,6 +92,10 @@ public class Liste extends TDAAbstraitIterateur
 	@Override
 	public Object getElement() throws TDAVideException 
 	{
+		if(this.pc == null)
+		{
+			this.pc = this.fin;
+		}
 		return this.pc.element;
 	}
 
@@ -101,7 +113,7 @@ public class Liste extends TDAAbstraitIterateur
 		}
 		else
 		{
-			while(cursor != this.pc && cursor.suivant != this.pc)
+			while(cursor.suivant != this.pc)
 			{
 				cursor = cursor.suivant;
 			}
@@ -113,10 +125,19 @@ public class Liste extends TDAAbstraitIterateur
 			else
 			{
 				cursor.suivant = null;
+				tmp = cursor;
 			}
 		}
 		this.pc = tmp;
+		
 		this.nbElements--;
+		
+		cursor = this.debut;
+		while(cursor != null && cursor.suivant != null) 
+		{
+			cursor = cursor.suivant;
+		}
+		this.fin = cursor;
 	}
 
 	@Override
