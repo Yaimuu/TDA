@@ -13,6 +13,12 @@ public class PanneauCentral extends JPanel
 		// TODO Auto-generated method stub
 		
 	}
+
+	public void afficheTDA(InterfaceTDA tda) 
+	{
+		// TODO Auto-generated method stub
+		
+	}
 	
 	public void afficherTDA(InterfaceTDA tda) throws TDAVideException
 	{
