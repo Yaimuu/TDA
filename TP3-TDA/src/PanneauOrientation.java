@@ -80,8 +80,8 @@ public class PanneauOrientation extends JPanel implements ActionListener{
 	 * est cliqué.
 	 */
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-
+	public void actionPerformed(ActionEvent arg0) 
+	{
 		panneauCentral.changeOrientation();
     }	
 	
