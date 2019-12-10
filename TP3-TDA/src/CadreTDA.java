@@ -3,7 +3,7 @@ import javax.swing.*;
 public class CadreTDA implements Runnable
 {
 	int[] size;
-	private JFrame frame = new JFrame();
+	public static JFrame frame = new JFrame();
 	
 	private BarreMenu menu;
 	private PanneauCentral panneauCentral;
@@ -17,16 +17,32 @@ public class CadreTDA implements Runnable
 		
 		menu = new BarreMenu();
 		panneauCentral = new PanneauCentral();
+		Liste liste = new Liste(1);
+		liste.ajoute(1);
+		liste.ajoute(2);
+		liste.ajoute(4);
+		liste.ajoute(1);
+		
 		
 		frame.setSize(size[0],size[1]);
 		//using no layout managers
 		frame.setLayout(null);
 		//making the frame visible
 		frame.setVisible(true);
+		try {
+			panneauCentral.afficherTDA(liste);
+		} catch (TDAVideException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		frame.setMenuBar(menu);
+		menu.setTDA(liste);
 		
-		frame.add(panneauCentral);
+		//frame.setMenuBar(menu);
+		
+		//frame.add(panneauCentral);
+		frame.validate();
+		frame.repaint();
 	}
 	
 }

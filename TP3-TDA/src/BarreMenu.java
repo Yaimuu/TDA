@@ -1,6 +1,6 @@
 import java.awt.MenuBar;
 
-import javax.swing.JMenuBar;
+import javax.swing.*;
 
 public class BarreMenu extends MenuBar
 {
@@ -13,7 +13,18 @@ public class BarreMenu extends MenuBar
 	
 	public void setTDA(InterfaceTDA tda)
 	{
-		// A faire
+		JMenu menuSlot = new JMenu("Menu typde de TDA");
+		menu.add(menuSlot);
+		JMenuItem pile = new JMenuItem("Pile");
+		JMenuItem file = new JMenuItem("File");
+		JMenuItem liste = new JMenuItem("Liste");
+		menuSlot.add(pile);
+		menuSlot.add(file);
+		menuSlot.add(liste);
+		CadreTDA.frame.setJMenuBar(menu);
+		CadreTDA.frame.validate();
+		CadreTDA.frame.repaint();
+		
 	}
 	
 }
