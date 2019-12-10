@@ -30,4 +30,8 @@ public class PanneauPrincipal extends JPanel
 	{
 		this.tda = tda;
 	}
+	
+	public InterfaceTDA getTDA() {
+		return this.tda;
+	}
 }

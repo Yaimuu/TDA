@@ -1,6 +1,7 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.AbstractButton;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
@@ -44,9 +45,7 @@ public class PanneauOrientation extends JPanel implements ActionListener{
 	public PanneauOrientation(PanneauCentral panneauCentral)
 	{
 		this.panneauCentral = panneauCentral;
-		
-		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		
+	
 		//Procédure locale 
 		initComposants();
 
@@ -62,6 +61,7 @@ public class PanneauOrientation extends JPanel implements ActionListener{
 		orientationPortrait = new JRadioButton("Portrait");  
 		orientationPortrait.setSelected(true);                  
 		orientationPortrait.addActionListener(this);
+		panneauCentral.changeOrientation(orientationPortrait.getText().toString());
 
 		orientationPaysage = new JRadioButton("Paysage");
 		orientationPaysage.addActionListener(this);
@@ -82,7 +82,8 @@ public class PanneauOrientation extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) 
 	{
-		panneauCentral.changeOrientation();
+		System.out.println(((AbstractButton) arg0.getSource()).getText().toString());
+		panneauCentral.changeOrientation(((AbstractButton) arg0.getSource()).getText().toString());
     }	
 	
 }

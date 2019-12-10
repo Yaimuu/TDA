@@ -1,5 +1,4 @@
 import java.awt.Color;
-import java.awt.Component;
 
 import javax.swing.*;
 
@@ -9,26 +8,25 @@ public class PanneauCentral extends JPanel
 	 * 
 	 */
 	//private JFrame frame;
-	int orientation = 0;
 	private static final long serialVersionUID = 1L;
 	
-	/*public PanneauCentral(JFrame fFrame) 
+	public PanneauCentral() 
 	{
-		this.frame = fFrame;
-	}*/
+		initComposants();
+	}
 	
 	public JLabel nbItems;
 	public JPanel panel;
 	
-	public void changeOrientation() 
+	public void changeOrientation(String orientation) 
 	{
-		if(orientation == 1) {
-			BoxLayout layout = new BoxLayout(this, BoxLayout.X_AXIS);
-			setLayout(layout);
-			
+		System.out.println(getLayout());
+		if(orientation== "Portrait") {
+			BoxLayout layout = new BoxLayout(this.panel, BoxLayout.Y_AXIS);
+			this.panel.setLayout(layout);
 		}else {
-			BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
-			setLayout(layout);
+			BoxLayout layout = new BoxLayout(this.panel, BoxLayout.X_AXIS);
+			this.panel.setLayout(layout);
 		}
 		validate();
 		repaint();
@@ -43,18 +41,18 @@ public class PanneauCentral extends JPanel
 		
 		add(this.nbItems);*/
 		//System.out.println("width : " + this.getSize().width + " - height : " + this.getSize().height);
-		
 		this.panel = new JPanel();
 		this.panel.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.black));
-		this.panel.removeAll();
+		/*BoxLayout layout = new BoxLayout(this.panel, BoxLayout.Y_AXIS);
+		panel.setLayout(layout);*/
+		add(this.panel);
 	}
 	
 	public void afficheTDA(InterfaceTDA tda) throws TDAVideException
 	{
 		removeAll();
 		
-		initComposants();
-		
+		this.panel.removeAll();
 		JButton element;
 		
 		if(tda.getId() == "Liste") 
@@ -109,7 +107,6 @@ public class PanneauCentral extends JPanel
 				}
 			}
 		}
-		
 		add(this.panel);
 		validate();
 		repaint();

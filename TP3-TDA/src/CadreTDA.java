@@ -8,11 +8,12 @@ import javax.swing.*;
 public class CadreTDA implements Runnable
 {
 	int[] size;
-	public JFrame frame = new JFrame();
+	public static JFrame frame = new JFrame();
 	
 	public BarreMenu menu;
 	public PanneauCentral panneauCentral;
 	public PanneauPrincipal panneauPrincipal;
+	
 	
 	@Override
 	public void run() 
@@ -25,41 +26,34 @@ public class CadreTDA implements Runnable
 		panneauCentral = new PanneauCentral();
 		panneauPrincipal = new PanneauPrincipal();
 		menu = new BarreMenu(panneauPrincipal);
+		panneauCentral.initComposants();
+		panneauPrincipal.central = panneauCentral;
 		
-		InterfaceTDA tda = new Liste(1);
-		tda.ajoute(1);
-		tda.ajoute(2);
-		tda.ajoute(4);
-		tda.ajoute(1);
+		panneauPrincipal.setTDA(new Liste(0));
+		try {
+			panneauPrincipal.central.afficheTDA(panneauPrincipal.getTDA());
+		} catch (TDAVideException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
-		
-		panneauPrincipal.setTDA(tda);
-		panneauPrincipal.initComposants();
 		
 		frame.setSize(size[0],size[1]);
 		//using no layout managers
 		frame.setLayout(new FlowLayout());
+		
 		//making the frame visible
 		frame.setVisible(true);
 		frame.addWindowListener(new MyWindowListener());
 		
-		try 
-		{
-			panneauCentral.afficheTDA(tda);
-		} 
-		catch (TDAVideException e) 
-		{
-			e.printStackTrace();
-		}
-		
-		menu.setTDA(tda);
+		menu.setTDA(new Liste(0));
 		
 		//panneauCentral.setSize(size[0],size[1]);
-		panneauPrincipal.setSize(size[0],size[1]);
+		//panneauPrincipal.setSize(size[0],size[1]);
 		
-		//panneauCentral.panel.setSize(panneauCentral.getSize().width - 250, panneauCentral.getSize().height - 150);
-		//panneauCentral.panel.setLocation(panneauCentral.getSize().width/4 - 125, 0);
-		
+		//panneauPrincipal.central.panel.setSize(panneauCentral.getSize().width - 250, panneauCentral.getSize().height - 150);
+		//panneauPrincipal.central.panel.setLocation(panneauCentral.getSize().width/4 - 125, 0);
+		panneauPrincipal.initComposants();
 		frame.add(panneauPrincipal);
 		frame.setJMenuBar(menu);
 		

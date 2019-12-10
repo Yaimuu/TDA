@@ -55,9 +55,14 @@ public class BarreMenu extends JMenuBar
 		        	panneauPrincipal.setTDA(new Liste(0));
 		        	break;
 	        }
-	        
-	        panneauPrincipal.central.validate();
-	        panneauPrincipal.central.repaint();
+	        try {
+				panneauPrincipal.central.afficheTDA(panneauPrincipal.getTDA());
+			} catch (TDAVideException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			}
+	        validate();
+	        repaint();
 	    }
 	}
 }
