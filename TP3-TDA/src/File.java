@@ -9,7 +9,8 @@ public class File extends TDAAbstrait
 		if(debut != null)
 		{
 			Noeud cursor = debut;
-	        while (cursor.suivant != null) {
+	        while (cursor.suivant != null) 
+	        {
 	            cursor = cursor.suivant;
 	        }
 	        cursor.suivant = new Noeud(element, null);
@@ -19,6 +20,13 @@ public class File extends TDAAbstrait
 			debut = new Noeud(element, null);
 		}
 		
+		Noeud cursor = debut;
+        while (cursor.suivant != null) 
+        {
+            cursor = cursor.suivant;
+        }
+        fin = cursor;
+		
 		// Un élément de plus.
 		nbElements++;
 		
@@ -27,7 +35,6 @@ public class File extends TDAAbstrait
 	@Override
 	public Object getElement() throws TDAVideException 
 	{
-		
 		if(fin == null) {
     		throw new TDAVideException(" La file est vide");
     	}
@@ -45,6 +52,13 @@ public class File extends TDAAbstrait
 		
 		// Déplace la tête sur le noeud suivant suffit grâce au System.gc().
 		debut = debut.suivant;
+		
+		Noeud cursor = debut;
+        while (cursor.suivant != null) 
+        {
+            cursor = cursor.suivant;
+        }
+        fin = cursor;
 		
 		// Un élément de moins.
 		nbElements--;

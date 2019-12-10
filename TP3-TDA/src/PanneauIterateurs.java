@@ -33,6 +33,7 @@ public class PanneauIterateurs extends JPanel
 	
 	public void initComposants()
 	{
+		removeAll();
 		if(tda.getId() == "Liste")
 		{
 			String[] itemsCB = {"Avant", "Après"};

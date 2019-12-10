@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Dimension;
 
 import javax.swing.*;
 
@@ -21,13 +22,18 @@ public class PanneauCentral extends JPanel
 	public void changeOrientation(String orientation) 
 	{
 		System.out.println(getLayout());
-		if(orientation== "Portrait") {
+		
+		if(orientation== "Portrait") 
+		{
 			BoxLayout layout = new BoxLayout(this.panel, BoxLayout.Y_AXIS);
 			this.panel.setLayout(layout);
-		}else {
+		}
+		else 
+		{
 			BoxLayout layout = new BoxLayout(this.panel, BoxLayout.X_AXIS);
 			this.panel.setLayout(layout);
 		}
+		
 		validate();
 		repaint();
 	}
@@ -41,11 +47,14 @@ public class PanneauCentral extends JPanel
 		
 		add(this.nbItems);*/
 		//System.out.println("width : " + this.getSize().width + " - height : " + this.getSize().height);
+		
 		this.panel = new JPanel();
-		this.panel.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.black));
+		this.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.black));
 		/*BoxLayout layout = new BoxLayout(this.panel, BoxLayout.Y_AXIS);
 		panel.setLayout(layout);*/
 		add(this.panel);
+		validate();
+		repaint();
 	}
 	
 	public void afficheTDA(InterfaceTDA tda) throws TDAVideException
