@@ -1,30 +1,63 @@
 import java.awt.MenuBar;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class BarreMenu extends MenuBar
+public class BarreMenu extends JMenuBar
 {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public JMenuBar menu = new JMenuBar();
+	public PanneauPrincipal panneauPrincipal;
+	
+	public BarreMenu(PanneauPrincipal panneauPrincipal)
+	{
+		this.panneauPrincipal = panneauPrincipal;
+	}
 	
 	public void setTDA(InterfaceTDA tda)
 	{
+		MyActionListener myActionListener = new MyActionListener();
 		JMenu menuSlot = new JMenu("Menu typde de TDA");
-		this.menu.add(menuSlot);
+		this.add(menuSlot);
+		
 		JMenuItem pile = new JMenuItem("Pile");
+		pile.addActionListener(myActionListener);
 		JMenuItem file = new JMenuItem("File");
+		file.addActionListener(myActionListener);
 		JMenuItem liste = new JMenuItem("Liste");
+		liste.addActionListener(myActionListener);
+		
 		menuSlot.add(pile);
 		menuSlot.add(file);
 		menuSlot.add(liste);
-		CadreTDA.frame.setJMenuBar(menu);
-		CadreTDA.frame.validate();
-		CadreTDA.frame.repaint();
 		
 	}
 	
+	class MyActionListener implements ActionListener 
+	{  
+		public void actionPerformed(ActionEvent e) 
+	    { 
+	        String s = e.getActionCommand(); 
+	        System.out.println(s);
+	        switch(s)
+	        {
+		        case "Pile" :
+		        	panneauPrincipal.setTDA(new Pile());
+		        	break;
+		        case "File" :
+		        	panneauPrincipal.setTDA(new File());
+		        	break;
+		        case "Liste" :
+		        	panneauPrincipal.setTDA(new Liste(0));
+		        	break;
+	        }
+	        
+	        panneauPrincipal.central.validate();
+	        panneauPrincipal.central.repaint();
+	    }
+	}
 }

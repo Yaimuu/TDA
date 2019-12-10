@@ -2,7 +2,7 @@ import java.awt.Component;
 
 import javax.swing.*;
 
-public class PanneauIterateurs extends Component
+public class PanneauIterateurs extends JPanel
 {
 	/**
 	 * 
@@ -13,26 +13,54 @@ public class PanneauIterateurs extends Component
 	private JButton avantBouton;
 	private JButton apresBouton;
 	private JButton finBouton;
-	private JComboBox ordreCB;
+	private JComboBox<String> ordreCB;
 	
-	private PanneauCentral panneauCentral = new PanneauCentral();
+	private PanneauCentral panneauCentral;
 	
-	private InterfaceTDAIterateur tda;
+	private InterfaceTDA tda;
 
 	public PanneauIterateurs(InterfaceTDA tda, PanneauCentral panneauCentral) 
 	{
-		// TODO Auto-generated constructor stub
+		this.tda = tda;
+		this.panneauCentral = panneauCentral;
+		initComposants();
 	}
 
 	public void setTda(InterfaceTDA tda) 
 	{
-		debutBouton = new JButton("|<");
-		finBouton = new JButton(">|");
-		avantBouton = new JButton("<<");
-		apresBouton = new JButton(">>");
-		ordreCB = new JComboBox();
+		this.tda = tda;
+	}
+	
+	public void initComposants()
+	{
+		if(tda.getId() == "Liste")
+		{
+			String[] itemsCB = {"Avant", "Après"};
 		
-		
+			debutBouton = new JButton("|<");
+			debutBouton.setSize(150, 50);
+			
+			finBouton = new JButton(">|");
+			finBouton.setSize(150, 50);
+			
+			avantBouton = new JButton("<<");
+			avantBouton.setSize(150, 50);
+			
+			apresBouton = new JButton(">>");
+			apresBouton.setSize(150, 50);
+			
+			ordreCB = new JComboBox<String>(itemsCB);
+			ordreCB.setSize(150, 50);
+			
+			add(debutBouton);
+			add(finBouton);
+			add(avantBouton);
+			add(apresBouton);
+			add(ordreCB);
+			
+			validate();
+			repaint();
+		}
 	}
 
 }

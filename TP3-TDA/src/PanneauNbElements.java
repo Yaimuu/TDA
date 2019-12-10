@@ -26,7 +26,7 @@ public class PanneauNbElements extends JPanel{
 		
 		//L'étiquette et le nombre
 		private JLabel etiqNbElements;
-		private  JLabel nbElements;		
+		private JLabel nbElements;		
 	
 		/**
 		 * 

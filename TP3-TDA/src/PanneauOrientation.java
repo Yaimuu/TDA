@@ -41,8 +41,8 @@ public class PanneauOrientation extends JPanel implements ActionListener{
 	/**
 	 * 
 	 */
-	public PanneauOrientation(PanneauCentral panneauCentral){
-		
+	public PanneauOrientation(PanneauCentral panneauCentral)
+	{
 		this.panneauCentral = panneauCentral;
 		
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));

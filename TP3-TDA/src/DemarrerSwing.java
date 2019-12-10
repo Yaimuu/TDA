@@ -14,8 +14,5 @@ public class DemarrerSwing
 	        }
 	    });
 		
-		PanneauCentral panneauCentral  = new PanneauCentral();
-		PanneauPrincipal principal = new PanneauPrincipal();
-		
 	}
 }

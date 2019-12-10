@@ -12,7 +12,8 @@ public class PanneauCentral extends JPanel
 	int orientation = 0;
 	private static final long serialVersionUID = 1L;
 	
-	/*public void PanneauCentral(JFrame fFrame) {
+	/*public PanneauCentral(JFrame fFrame) 
+	{
 		this.frame = fFrame;
 	}*/
 	
@@ -33,34 +34,39 @@ public class PanneauCentral extends JPanel
 		repaint();
 	}
 	
-	public void afficheTDA(InterfaceTDA tda) throws TDAVideException
+	public void initComposants()
 	{
-		removeAll();
-		
-		this.nbItems = new JLabel();
+		/*this.nbItems = new JLabel();
 		//nbItems.setText("<html><body style=\"width:500px;height:500px;text-align: center;background: url('https://i.ytimg.com/vi/s7bl9YyoFtw/hqdefault.jpg');background-position: center;\"></body></html>");
 		this.nbItems.setText("<html><body style=\"text-align: center;\"><p>Nombre d'éléments :</p><p>" + tda.getNbElements() + "</p></body></html>");
 		this.nbItems.setSize(150, 30);
 		
-		add(this.nbItems);
+		add(this.nbItems);*/
+		//System.out.println("width : " + this.getSize().width + " - height : " + this.getSize().height);
 		
 		this.panel = new JPanel();
-		this.panel.setSize(CadreTDA.frame.getSize().width - 250, CadreTDA.frame.getSize().height - 150);
-		this.panel.setLocation(CadreTDA.frame.getSize().width/4 - 125, 0);
 		this.panel.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.black));
+		this.panel.removeAll();
+	}
+	
+	public void afficheTDA(InterfaceTDA tda) throws TDAVideException
+	{
+		removeAll();
+		
+		initComposants();
+		
+		JButton element;
 		
 		if(tda.getId() == "Liste") 
 		{
 			((Liste) tda).setPcDebut();
 		}
 		
-		
-		
 		if(tda.estVide())
 		{
-			JButton vide = new JButton(tda.getId() + " est vide !");
-			vide.setSize(150, 50);
-			this.panel.add(vide);
+			element = new JButton(tda.getId() + " est vide !");
+			element.setSize(150, 50);
+			this.panel.add(element);
 		}
 		else
 		{
@@ -70,35 +76,40 @@ public class PanneauCentral extends JPanel
 			
 			for(int i = 0; i < contenuTDA.length; i++)
 			{
-				JButton element = new JButton(tda.getElement().toString());
+				element = new JButton(tda.getElement().toString());
 				if(contenuTDA.length == 1)
 				{
 					element.setBackground(Color.orange);
 					element.setText(element.getText() + " Element unique");
-				}else {
-					//System.out.println(tda.getElement());
+				}
+				else 
+				{
 					if(tda.getPosition() == 0)
 					{
 						element.setBackground(Color.lightGray);
 						element.setText(element.getText() + " Debut");
-					}else if(tda.getPosition() == tda.getNbElements()-1){
+					}
+					else if(tda.getPosition() == tda.getNbElements()-1)
+					{
 						element.setBackground(Color.red);
 						element.setText(element.getText() + " Fin");
 					}
 				}
 				element.setSize(150, 50);
-				if(pos == i) {
+				if(pos == i) 
+				{
 					element.setBackground(Color.yellow);
 				}
 				element.setLocation(0, 50*i);
 				this.panel.add(element);
-				if(tda.getId() == "Liste") {
+				
+				if(tda.getId() == "Liste") 
+				{
 					((Liste) tda).setPcSuivant();
-				}else {
-					//((Liste) tda).setPcSuivant();
 				}
 			}
 		}
+		
 		add(this.panel);
 		validate();
 		repaint();

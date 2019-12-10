@@ -148,8 +148,8 @@ public class PanneauBoutonsDuBas extends JPanel {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-	}			
-}
+		}			
+	}
 
 	/**
 	 * Sous classe privée pour implémenter l'écouteur
