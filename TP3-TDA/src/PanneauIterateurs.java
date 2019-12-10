@@ -9,11 +9,11 @@ public class PanneauIterateurs extends Component
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private JButton debut;
-	private JButton avant;
-	private JButton apres;
-	private JButton fin;
-	private JComboBox ordre;
+	private JButton debutBouton;
+	private JButton avantBouton;
+	private JButton apresBouton;
+	private JButton finBouton;
+	private JComboBox ordreCB;
 	
 	private PanneauCentral panneauCentral = new PanneauCentral();
 	
@@ -26,7 +26,12 @@ public class PanneauIterateurs extends Component
 
 	public void setTda(InterfaceTDA tda) 
 	{
-		// TODO Auto-generated method stub
+		debutBouton = new JButton("|<");
+		finBouton = new JButton(">|");
+		avantBouton = new JButton("<<");
+		apresBouton = new JButton(">>");
+		ordreCB = new JComboBox();
+		
 		
 	}
 

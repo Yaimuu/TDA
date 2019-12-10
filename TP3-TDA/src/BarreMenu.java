@@ -14,7 +14,7 @@ public class BarreMenu extends MenuBar
 	public void setTDA(InterfaceTDA tda)
 	{
 		JMenu menuSlot = new JMenu("Menu typde de TDA");
-		menu.add(menuSlot);
+		this.menu.add(menuSlot);
 		JMenuItem pile = new JMenuItem("Pile");
 		JMenuItem file = new JMenuItem("File");
 		JMenuItem liste = new JMenuItem("Liste");

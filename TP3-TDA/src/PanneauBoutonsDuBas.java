@@ -113,8 +113,9 @@ public class PanneauBoutonsDuBas extends JPanel {
 	 * Modifie la référence sur le tda du panneau.
 	 * 
 	 * @param tda La référence de remplacement.
+	 * @throws TDAVideException 
 	 */
-	public void setTDA(InterfaceTDA tda){
+	public void setTDA(InterfaceTDA tda) throws TDAVideException{
 		
 	       this.tda = tda;
 
@@ -141,7 +142,12 @@ public class PanneauBoutonsDuBas extends JPanel {
 			tda.ajoute(++nbAjouts);
 
 			// Important pour que l'ajout dans le TDA se voit à l'écran.
-			mettreAJour();
+			try {
+				mettreAJour();
+			} catch (TDAVideException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}			
 }
 
@@ -175,18 +181,26 @@ public class PanneauBoutonsDuBas extends JPanel {
     /*
      * Procédure locale qui met à joueur les 2 autres panneaux liés. 
      */
-	public void mettreAJour() {	
+	public void mettreAJour() throws TDAVideException {	
 		
-		   panneauNbElements.setNbElements(tda.getNbElements());
-	       panneauCentral.afficheTDA(tda);     		
+		panneauNbElements.setNbElements(tda.getNbElements());
+		try 
+		{
+			panneauCentral.afficheTDA(tda);
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+	    }     		
 	}
 	
 	/**
 	 * Remet le panneau du bas dans son état initial avec le nouveau tda.
 	 * 
 	 * @param tda Le tda que lepanneau central doit afficher.
+	 * @throws TDAVideException 
 	 */
-	public void reinitialiser(InterfaceTDA tda) {
+	public void reinitialiser(InterfaceTDA tda) throws TDAVideException {
 		
 		   
 		   // Remet le compteur d'ajout à 0.

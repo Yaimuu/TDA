@@ -2,10 +2,9 @@ import javax.swing.*;
 
 public class DemarrerSwing 
 {
-	static CadreTDA cadre = new CadreTDA();
-	
 	public static void main(String args[])
 	{
+		CadreTDA cadre = new CadreTDA();
 		
 		SwingUtilities.invokeLater(new Runnable() 
 	    {
@@ -14,6 +13,9 @@ public class DemarrerSwing
 	            cadre.run();
 	        }
 	    });
+		
+		PanneauCentral panneauCentral  = new PanneauCentral();
+		PanneauPrincipal principal = new PanneauPrincipal();
 		
 	}
 }

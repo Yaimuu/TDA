@@ -5,8 +5,9 @@ public class CadreTDA implements Runnable
 	int[] size;
 	public static JFrame frame = new JFrame();
 	
-	private BarreMenu menu;
-	private PanneauCentral panneauCentral;
+	public BarreMenu menu;
+	public PanneauCentral panneauCentral;
+	public PanneauPrincipal panneauPrincipal;
 	
 	@Override
 	public void run() 
@@ -17,27 +18,40 @@ public class CadreTDA implements Runnable
 		
 		menu = new BarreMenu();
 		panneauCentral = new PanneauCentral();
+		panneauPrincipal = new PanneauPrincipal();
+		
+		
 		Liste liste = new Liste(1);
 		liste.ajoute(1);
 		liste.ajoute(2);
 		liste.ajoute(4);
 		liste.ajoute(1);
 		
+		panneauPrincipal.setTDA(liste);
+		panneauPrincipal.initComposants();
 		
 		frame.setSize(size[0],size[1]);
 		//using no layout managers
 		frame.setLayout(null);
 		//making the frame visible
 		frame.setVisible(true);
-		try {
-			panneauCentral.afficherTDA(liste);
-		} catch (TDAVideException e) {
-			// TODO Auto-generated catch block
+		try 
+		{
+			panneauCentral.afficheTDA(liste);
+		} 
+		catch (TDAVideException e) 
+		{
 			e.printStackTrace();
 		}
 		
+		
 		menu.setTDA(liste);
 		
+		panneauCentral.setSize(frame.getWidth(), frame.getHeight());
+		panneauPrincipal.setSize(frame.getWidth(), frame.getHeight());
+		
+		frame.add(panneauCentral);
+		frame.add(panneauPrincipal);
 		//frame.setMenuBar(menu);
 		
 		//frame.add(panneauCentral);

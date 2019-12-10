@@ -5,7 +5,6 @@ import javax.swing.*;
 
 public class PanneauCentral extends JPanel
 {
-
 	/**
 	 * 
 	 */
@@ -17,50 +16,51 @@ public class PanneauCentral extends JPanel
 		this.frame = fFrame;
 	}*/
 	
+	public JLabel nbItems;
+	public JPanel panel;
+	
 	public void changeOrientation() 
 	{
 		if(orientation == 1) {
 			BoxLayout layout = new BoxLayout(this, BoxLayout.X_AXIS);
-			CadreTDA.frame.setLayout(layout);
-			CadreTDA.frame.validate();
-			CadreTDA.frame.repaint();
+			setLayout(layout);
 			
 		}else {
 			BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
-			CadreTDA.frame.setLayout(layout);
-			CadreTDA.frame.validate();
-			CadreTDA.frame.repaint();
+			setLayout(layout);
 		}
 		validate();
 		repaint();
 	}
-
-	public void afficheTDA(InterfaceTDA tda) 
-	{
-		// TODO Auto-generated method stub
-		
-	}
 	
-	public void afficherTDA(InterfaceTDA tda) throws TDAVideException
+	public void afficheTDA(InterfaceTDA tda) throws TDAVideException
 	{
-		JLabel nbItems = new JLabel();
-		//nbItems.setText("<html><body style=\"width:500px;height:500px;text-align: center;background: url('https://i.ytimg.com/vi/s7bl9YyoFtw/hqdefault.jpg');background-position: center;\"><p>Nombre d'éléments :</p><p>" + tda.getNbElements() + "</p></body></html>");
-		nbItems.setText("<html><body style=\"text-align: center;\"><p>Nombre d'éléments :</p><p>" + tda.getNbElements() + "</p></body></html>");
-		nbItems.setSize(150, 30);
-		CadreTDA.frame.add(nbItems);
-		JPanel panel = new JPanel();
-		panel.setSize(CadreTDA.frame.getSize().width - 250, CadreTDA.frame.getSize().height - 150);
-		panel.setLocation(CadreTDA.frame.getSize().width/4 - 125, 0);
-		panel.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.black));
-		if(tda.getId() == "Liste") {
+		removeAll();
+		
+		this.nbItems = new JLabel();
+		//nbItems.setText("<html><body style=\"width:500px;height:500px;text-align: center;background: url('https://i.ytimg.com/vi/s7bl9YyoFtw/hqdefault.jpg');background-position: center;\"></body></html>");
+		this.nbItems.setText("<html><body style=\"text-align: center;\"><p>Nombre d'éléments :</p><p>" + tda.getNbElements() + "</p></body></html>");
+		this.nbItems.setSize(150, 30);
+		
+		add(this.nbItems);
+		
+		this.panel = new JPanel();
+		this.panel.setSize(CadreTDA.frame.getSize().width - 250, CadreTDA.frame.getSize().height - 150);
+		this.panel.setLocation(CadreTDA.frame.getSize().width/4 - 125, 0);
+		this.panel.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.black));
+		
+		if(tda.getId() == "Liste") 
+		{
 			((Liste) tda).setPcDebut();
 		}
-		removeAll();
+		
+		
+		
 		if(tda.estVide())
 		{
 			JButton vide = new JButton(tda.getId() + " est vide !");
 			vide.setSize(150, 50);
-			CadreTDA.frame.add(vide);
+			this.panel.add(vide);
 		}
 		else
 		{
@@ -76,7 +76,7 @@ public class PanneauCentral extends JPanel
 					element.setBackground(Color.orange);
 					element.setText(element.getText() + " Element unique");
 				}else {
-					System.out.println(tda.getPosition());
+					//System.out.println(tda.getElement());
 					if(tda.getPosition() == 0)
 					{
 						element.setBackground(Color.lightGray);
@@ -91,16 +91,16 @@ public class PanneauCentral extends JPanel
 					element.setBackground(Color.yellow);
 				}
 				element.setLocation(0, 50*i);
-				panel.add(element);
+				this.panel.add(element);
 				if(tda.getId() == "Liste") {
 					((Liste) tda).setPcSuivant();
 				}else {
-					((Liste) tda).setPcSuivant();
+					//((Liste) tda).setPcSuivant();
 				}
 			}
 		}
-		CadreTDA.frame.add(panel);
-		CadreTDA.frame.validate();
-		CadreTDA.frame.repaint();
+		add(this.panel);
+		validate();
+		repaint();
 	}
 }
