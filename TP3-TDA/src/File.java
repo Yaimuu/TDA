@@ -2,7 +2,14 @@
 
 public class File extends TDAAbstrait 
 {
-
+	/*
+	 * Constructeur par défaut qui retourne une file vide instanciée.
+	 */
+	public File()
+	{
+		super();
+	}
+	
 	@Override
 	public void ajoute(Object element) 
 	{
@@ -38,7 +45,7 @@ public class File extends TDAAbstrait
 		if(fin == null) {
     		throw new TDAVideException(" La file est vide");
     	}
-		return debut.element;
+		return fin.element;
 		
 	}
 
@@ -52,13 +59,6 @@ public class File extends TDAAbstrait
 		
 		// Déplace la tête sur le noeud suivant suffit grâce au System.gc().
 		debut = debut.suivant;
-		
-		Noeud cursor = debut;
-        while (cursor.suivant != null) 
-        {
-            cursor = cursor.suivant;
-        }
-        fin = cursor;
 		
 		// Un élément de moins.
 		nbElements--;

@@ -9,7 +9,7 @@ import javax.swing.*;
 public class CadreTDA implements Runnable
 {
 	int[] size;
-	public static JFrame frame = new JFrame();
+	public JFrame frame = new JFrame();
 	
 	public BarreMenu menu;
 	public PanneauPrincipal panneauPrincipal;
@@ -25,17 +25,19 @@ public class CadreTDA implements Runnable
 		panneauPrincipal = new PanneauPrincipal();
 		menu = new BarreMenu(panneauPrincipal);
 		
-		panneauPrincipal.setTDA(new Liste(0));
+		InterfaceTDA defaultTDA = new Pile();
+		
+		panneauPrincipal.setTDA(defaultTDA);
 		panneauPrincipal.initComposants();
 		
-		try 
+		try
 		{
-			panneauPrincipal.central.afficheTDA(panneauPrincipal.getTDA());
-		} catch (TDAVideException e1) 
+			panneauPrincipal.central.afficheTDA(defaultTDA);
+		} 
+		catch (TDAVideException e1)
 		{
 			e1.printStackTrace();
 		}
-		
 		
 		frame.setSize(size[0],size[1]);
 		//using no layout managers
@@ -45,12 +47,9 @@ public class CadreTDA implements Runnable
 		frame.setVisible(true);
 		frame.addWindowListener(new MyWindowListener());
 		
-		menu.setTDA(new Liste(0));
+		menu.setTDA(defaultTDA);
 		
 		panneauPrincipal.setPreferredSize(new Dimension(size[0],size[1]));
-		
-		//panneauPrincipal.central.panel.setSize(panneauCentral.getSize().width - 250, panneauCentral.getSize().height - 150);
-		//panneauPrincipal.central.panel.setLocation(panneauCentral.getSize().width/4 - 125, 0);
 		
 		panneauPrincipal.setBackground(Color.white);
 		

@@ -88,6 +88,19 @@ public class Liste extends TDAAbstraitIterateur
 			this.pc = this.pc.suivant;
 		 }	
 	}
+	
+	@Override
+	public void setPcPrecedent() {
+		if(this.pc != this.debut)
+		{
+			Noeud cursor = this.debut;
+			while(cursor.suivant != pc)
+			{
+				cursor = cursor.suivant;
+			}
+			this.pc = cursor;
+		}
+	}
 
 	@Override
 	public Object getElement() throws TDAVideException 

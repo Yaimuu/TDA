@@ -46,7 +46,7 @@ public class PanneauNbElements extends JPanel{
 			etiqNbElements = new JLabel("Nombre d'éléments : ");
 			nbElements = new JLabel("0");
 			
-			setPreferredSize(new Dimension(120,30));
+			setPreferredSize(new Dimension(120,50));
 			
 			add(etiqNbElements);
 			add(nbElements);
@@ -57,8 +57,10 @@ public class PanneauNbElements extends JPanel{
 		 * 
 		 * @param nb Le nombre à afficher
 		 */
-		public void setNbElements(int nb){
-			nbElements.setText(String.valueOf(nb));			
+		public void setNbElements(int nb)
+		{
+			nbElements.setText(String.valueOf(nb));	
+			nbElements.setPreferredSize(new Dimension(10*nbElements.getText().length(),10));
 		}
 	
 	}

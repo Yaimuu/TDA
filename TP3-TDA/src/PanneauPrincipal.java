@@ -20,15 +20,16 @@ public class PanneauPrincipal extends JPanel
 	public void initComposants()
 	{
 		nbElements = new PanneauNbElements();
+		nbElements.setNbElements(tda.getNbElements());
 		
 		central = new PanneauCentral();
 		central.setBackground(Color.orange);
-		central.setPreferredSize(new Dimension(750, 400));
+		central.setPreferredSize(new Dimension(800, 400));
 		central.initComposants();
+		
 		orientation = new PanneauOrientation(central);
 		
 		boutonsDuBas = new PanneauBoutonsDuBas(this.tda, central, nbElements);
-		
 		
 		add(nbElements);
 		add(central);
@@ -39,11 +40,15 @@ public class PanneauPrincipal extends JPanel
 	public void setTDA(InterfaceTDA tda)
 	{
 		this.tda = tda;
+		
 		if(boutonsDuBas != null)
 		{
+			nbElements.setNbElements(tda.getNbElements());
 			try 
 			{
 				boutonsDuBas.setTDA(tda);
+				boutonsDuBas.mettreAJour();
+				
 			} 
 			catch (TDAVideException e) 
 			{

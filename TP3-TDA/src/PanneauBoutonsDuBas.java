@@ -45,7 +45,7 @@ public class PanneauBoutonsDuBas extends JPanel {
 	//Panneau qui contient les boutons de navigation des tdaIterateur.
     private PanneauIterateurs panneauIterateurs;
     
-    // Pour rafaichir après un ajout ou un retrait (reçu au constructeur).
+    // Pour rafraichir après un ajout ou un retrait (reçu au constructeur).
     private PanneauCentral panneauCentral;   
     private PanneauNbElements panneauNbElements;
 
@@ -140,7 +140,7 @@ public class PanneauBoutonsDuBas extends JPanel {
 			// On ajoute dans le tda en mémoire
 			// et on met à jour les panneaux.
 			tda.ajoute(++nbAjouts);
-
+			
 			// Important pour que l'ajout dans le TDA se voit à l'écran.
 			try {
 				mettreAJour();
