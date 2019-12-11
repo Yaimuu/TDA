@@ -10,12 +10,11 @@ public class Liste extends TDAAbstraitIterateur
 	
 	public void setModeInsertion( int mode)
 	{
-		
 		this.mode = mode;
 	}
 	
 	@Override
-	public void ajoute(Object element) 
+	public void ajoute(Object element)
 	{
 		if(this.debut != null) 
 		{
@@ -84,17 +83,16 @@ public class Liste extends TDAAbstraitIterateur
 	public void setPcSuivant() {
 		if(this.pc != null && this.pc.suivant != null)
 		{
-			 // On passe au suivant.
+			// On passe au suivant.
 			this.pc = this.pc.suivant;
 		 }	
 	}
 	
-	@Override
 	public void setPcPrecedent() {
 		if(this.pc != this.debut)
 		{
 			Noeud cursor = this.debut;
-			while(cursor.suivant != pc)
+			while(cursor.suivant != this.pc)
 			{
 				cursor = cursor.suivant;
 			}
@@ -115,7 +113,6 @@ public class Liste extends TDAAbstraitIterateur
 	@Override
 	public void supprime() throws TDAVideException 
 	{
-		
 		Noeud cursor = this.debut;
 		Noeud tmp = null;
 		if(this.debut == this.pc)
@@ -130,7 +127,9 @@ public class Liste extends TDAAbstraitIterateur
 			{
 				cursor = cursor.suivant;
 			}
+			
 			tmp = cursor.suivant.suivant;
+			
 			if(cursor.suivant != null)
 			{
 				cursor.suivant = tmp;

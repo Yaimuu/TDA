@@ -55,11 +55,6 @@ public class PanneauCentral extends JPanel
 		this.panel.removeAll();
 		JButton element;
 		
-		if(tda.getId() == "Liste") 
-		{
-			((Liste) tda).setPcDebut();
-		}
-		
 		if(tda.estVide())
 		{
 			element = new JButton(tda.getId() + " est vide !");
@@ -71,10 +66,16 @@ public class PanneauCentral extends JPanel
 			Object[] contenuTDA = tda.toArray();
 			int pos = tda.getPosition();
 			int nbElements = tda.getNbElements();
+			//System.out.println(pos);
+			if(tda.getId() == "Liste")
+			{
+				((Liste) tda).setPcDebut();
+			}
 			
 			for(int i = 0; i < contenuTDA.length; i++)
 			{
 				if(tda.getId() == "Liste") {
+					
 					element = new JButton(tda.getElement().toString());
 					if(contenuTDA.length == 1)
 					{
