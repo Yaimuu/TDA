@@ -3,6 +3,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+/**
+ * Classe Panneau Iterateurs, elle permet de gérer l'affichage des boutons permettant de changer
+ * la position du curseur
+ *
+ * @author Yanis Ouled Moussa, Justin Garcia
+ * @version automne 2019
+ */
 public class PanneauIterateurs extends JPanel
 {
 	/**
@@ -30,10 +37,12 @@ public class PanneauIterateurs extends JPanel
 		initComposants();
 	}
 
+	/*
+	 * Définition du this.tda pour qu'il soit égale au TDA passé en paramètre
+	 * */
 	public void setTda(InterfaceTDA tda) 
 	{
 		this.tda = tda;
-		//System.out.println(tda.getId());
 		removeAll();
 		if(this.tda.getId() == "Liste")
 		{
@@ -44,7 +53,8 @@ public class PanneauIterateurs extends JPanel
 			isIterratorShowed = false;
 		}
 	}
-	
+
+	// Initialisation des composants
 	public void initComposants()
 	{
 		removeAll();
@@ -54,6 +64,9 @@ public class PanneauIterateurs extends JPanel
 		}
 	}
 	
+	/*
+	 * On met à jour le TDA
+	 * */
 	public void mettreAJour()
 	{
 		System.out.print("Vrai tda : " + ((Liste)tda).getPosition() + "\n");
@@ -66,6 +79,7 @@ public class PanneauIterateurs extends JPanel
 			e.printStackTrace();
 		}
 		
+		// Si nous sommes sur une liste on affiche les éléments permettant de bouger le curseur
 		if(!isIterratorShowed)
 		{
 			String[] itemsCB = {"Avant", "Après"};
@@ -115,7 +129,7 @@ public class PanneauIterateurs extends JPanel
 			// Important pour que l'ajout dans le TDA se voit à l'écran.
 			mettreAJour();
 			
-		}			
+		}
 	}
 	
 	private class EcouteurBoutonFin implements ActionListener{

@@ -1,3 +1,9 @@
+/**
+ * Classe Liste, elle met en place le système de fonctionnement d'une liste
+ *
+ * @author Yanis Ouled Moussa, Justin Garcia
+ * @version automne 2019
+ */
 public class Liste extends TDAAbstraitIterateur
 {
 	private int mode;
@@ -12,7 +18,10 @@ public class Liste extends TDAAbstraitIterateur
 	{
 		this.mode = mode;
 	}
-	
+	/*
+	 * On ajout le Noeud dans la liste selon le mode d'insértion AVANT ou APRES
+	 * Si la liste est null, on instancie un Noeud dedans en lui donnant la position de tête
+	 * */
 	@Override
 	public void ajoute(Object element)
 	{
@@ -69,16 +78,19 @@ public class Liste extends TDAAbstraitIterateur
 		
 	}
 
+	// On indique que la position curseur est égale à la tête
 	@Override
 	public void setPcDebut() {
 		this.pc = this.debut;
 	}
 	
+	// On indique que la position curseur est égale à la queue
 	@Override
 	public void setPcFin() {
 		this.pc = this.fin;
 	}
 	
+	// On indique que la position curseur est égale au Noeud suivant
 	@Override
 	public void setPcSuivant() {
 		if(this.pc != null && this.pc.suivant != null)
@@ -88,6 +100,8 @@ public class Liste extends TDAAbstraitIterateur
 		 }	
 	}
 	
+	// On indique que la position curseur est égale au Noeud précédent
+	// (avec un while car les Noeuds ne sont pas sont doublement chainés)
 	public void setPcPrecedent() {
 		if(this.pc != this.debut)
 		{
@@ -100,6 +114,7 @@ public class Liste extends TDAAbstraitIterateur
 		}
 	}
 
+	// On retourne le Noeud correspondant au curseur
 	@Override
 	public Object getElement() throws TDAVideException 
 	{
@@ -110,6 +125,7 @@ public class Liste extends TDAAbstraitIterateur
 		return this.pc.element;
 	}
 
+	// On supprime l'élément se trouvant à la position après le curseur
 	@Override
 	public void supprime() throws TDAVideException 
 	{
@@ -152,6 +168,7 @@ public class Liste extends TDAAbstraitIterateur
 		this.fin = cursor;
 	}
 
+	// On retourne la position du Noeud au curseur
 	@Override
 	public int getPosition() 
 	{
@@ -170,6 +187,7 @@ public class Liste extends TDAAbstraitIterateur
 		return position;
 	}
 
+	// On retourne l'id de la Classe
 	@Override
 	public String getId() 
 	{

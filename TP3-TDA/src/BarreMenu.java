@@ -3,7 +3,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
-
+/**
+ * Classe Barre Menu, elle permet d'ajouter le menu avec le choix des types de TDA
+ *
+ * @author Yanis Ouled Moussa, Justin Garcia
+ * @version automne 2019
+ */
 public class BarreMenu extends JMenuBar
 {
 	/**

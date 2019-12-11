@@ -1,4 +1,9 @@
-
+/**
+ * Classe File, elle permet de créer le système de fonctionnement de la file
+ *
+ * @author Yanis Ouled Moussa, Justin Garcia
+ * @version automne 2019
+ */
 
 public class File extends TDAAbstrait 
 {
@@ -10,6 +15,10 @@ public class File extends TDAAbstrait
 		super();
 	}
 	
+	/*
+	 * On ajoute le nouveau noeud dans la file
+	 * si la file est null, on instancie un Noeud
+	 * */
 	@Override
 	public void ajoute(Object element) 
 	{
@@ -57,7 +66,7 @@ public class File extends TDAAbstrait
 			throw new TDAVideException("La file est vide");
 		}
 		
-		// Déplace la tête sur le noeud suivant suffit grâce au System.gc().
+		// Déplace la tête sur le noeud suivant du début
 		debut = debut.suivant;
 		
 		// Un élément de moins.

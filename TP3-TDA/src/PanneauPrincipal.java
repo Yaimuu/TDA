@@ -2,7 +2,12 @@ import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.*;  
-
+/**
+ * Classe Panneau Principal, c'est le panneau principale de l'application
+ *
+ * @author Yanis Ouled Moussa, Justin Garcia
+ * @version automne 2019
+ */
 public class PanneauPrincipal extends JPanel
 {
 	/**
@@ -17,6 +22,10 @@ public class PanneauPrincipal extends JPanel
 	
 	private InterfaceTDA tda;
 	
+	
+	/*
+	 * Initialisation des composants du PanneauPrincipal
+	 * */
 	public void initComposants()
 	{
 		nbElements = new PanneauNbElements();
@@ -37,6 +46,9 @@ public class PanneauPrincipal extends JPanel
 		add(boutonsDuBas);
 	}
 	
+	/*
+	 * Définition du this.tda pour qu'il soit égale au TDA passé en paramètre
+	 * */
 	public void setTDA(InterfaceTDA tda)
 	{
 		this.tda = tda;
